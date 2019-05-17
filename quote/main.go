@@ -18,7 +18,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/markcheno/go-quote"
+	"github.com/stormasm/markcheno-gq"
 )
 
 var usage = `Usage:
