@@ -1633,27 +1633,7 @@ func NewMarketList(market string) ([]string, error) {
 		url = "http://www.nasdaq.com/screening/companies-by-industry.aspx?industry=Technology&render=download"
 	case "transportation":
 		url = "http://www.nasdaq.com/screening/companies-by-industry.aspx?industry=Transportation&render=download"
-	case "bittrex-btc":
-		url = "https://bittrex.com/Api/v2.0/pub/markets/getmarketsummaries"
-	case "bittrex-eth":
-		url = "https://bittrex.com/Api/v2.0/pub/markets/getmarketsummaries"
-	case "bittrex-usdt":
-		url = "https://bittrex.com/Api/v2.0/pub/markets/getmarketsummaries"
-	case "binance-bnb":
-		url = "https://api.binance.com/api/v1/exchangeInfo"
-	case "binance-btc":
-		url = "https://api.binance.com/api/v1/exchangeInfo"
-	case "binance-eth":
-		url = "https://api.binance.com/api/v1/exchangeInfo"
-	case "binance-usdt":
-		url = "https://api.binance.com/api/v1/exchangeInfo"
-	case "tiingo-btc":
-		url = fmt.Sprintf("https://api.tiingo.com/tiingo/crypto?token=%s", os.Getenv("TIINGO_API_TOKEN"))
-	case "tiingo-eth":
-		url = fmt.Sprintf("https://api.tiingo.com/tiingo/crypto?token=%s", os.Getenv("TIINGO_API_TOKEN"))
-	case "tiingo-usd":
-		url = fmt.Sprintf("https://api.tiingo.com/tiingo/crypto?token=%s", os.Getenv("TIINGO_API_TOKEN"))
-	}
+}
 
 	resp, err := http.Get(url)
 	if err != nil {
