@@ -2,7 +2,7 @@
 Package quote is free quote downloader library and cli
 
 Downloads daily/weekly/monthly/yearly historical price quotes from Yahoo
-and daily/intraday data from Google,Tiingo, crypto from Gdax,Bittrex/Binance
+and daily/intraday data from Google
 
 Copyright 2018 Mark Chenoweth
 Licensed under terms of MIT license
@@ -36,7 +36,7 @@ Options:
   -infile=<filename>   list of symbols to download
   -outfile=<filename>  output filename
   -period=<period>     1m|3m|5m|15m|30m|1h|2h|4h|6h|8h|12h|d|3d|w|m [default=d]
-  -source=<source>     yahoo|google|tiingo|tiingo-crypto|gdax|bittrex|binance [default=yahoo]
+  -source=<source>     yahoo|google [default=yahoo]
   -token=<tiingo_tok>  tingo api token [default=TIINGO_API_TOKEN]
   -format=<format>     (csv|json|hs|ami) [default=csv]
   -adjust=<bool>       adjust yahoo prices [default=true]
@@ -53,9 +53,6 @@ market cap: megacap,largecap,midcap,smallcap,microcap,nanocap
 sectors:    basicindustries,capitalgoods,consumerdurables,consumernondurable,
             consumerservices,energy,finance,healthcare,miscellaneous,
             utilities,technolog,transportation
-crypto:     bittrex-btc,bittrex-eth,bittrex-usdt,
-            binance-bnb,binance-btc,binance-eth,binance-usdt
-            tiingo-btc,tiingo-eth,tiingo-usd
 all:        allmarkets
 `
 
@@ -94,13 +91,8 @@ func checkFlags(flags quoteflags) error {
 
 	// validate source
 	if flags.source != "yahoo" &&
-		flags.source != "google" &&
-		flags.source != "tiingo" &&
-		flags.source != "tiingo-crypto" &&
-		flags.source != "gdax" &&
-		flags.source != "bittrex" &&
-		flags.source != "binance" {
-		return fmt.Errorf("invalid source, must be either 'yahoo', 'google', 'tiingo', 'gdax', 'bittrex', or 'binance'")
+		flags.source != "google" {
+		return fmt.Errorf("invalid source, must be either 'yahoo', 'google'")
 	}
 
 	// validate period
