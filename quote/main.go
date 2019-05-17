@@ -277,16 +277,6 @@ func outputAll(symbols []string, flags quoteflags) error {
 		quotes, err = quote.NewQuotesFromYahooSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), period, flags.adjust)
 	} else if flags.source == "google" {
 		quotes, err = quote.NewQuotesFromGoogleSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), period)
-	} else if flags.source == "tiingo" {
-		quotes, err = quote.NewQuotesFromTiingoSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), flags.token)
-	} else if flags.source == "tiingo-crypto" {
-		quotes, err = quote.NewQuotesFromTiingoCryptoSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), period, flags.token)
-	} else if flags.source == "gdax" {
-		quotes, err = quote.NewQuotesFromGdaxSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), period)
-	} else if flags.source == "bittrex" {
-		quotes, err = quote.NewQuotesFromBittrexSyms(symbols, period)
-	} else if flags.source == "binance" {
-		quotes, err = quote.NewQuotesFromBinanceSyms(symbols, from.Format(dateFormat), to.Format(dateFormat), period)
 	}
 	if err != nil {
 		return err
@@ -316,16 +306,6 @@ func outputIndividual(symbols []string, flags quoteflags) error {
 			q, _ = quote.NewQuoteFromYahoo(sym, from.Format(dateFormat), to.Format(dateFormat), period, flags.adjust)
 		} else if flags.source == "google" {
 			q, _ = quote.NewQuoteFromGoogle(sym, from.Format(dateFormat), to.Format(dateFormat), period)
-		} else if flags.source == "tiingo" {
-			q, _ = quote.NewQuoteFromTiingo(sym, from.Format(dateFormat), to.Format(dateFormat), flags.token)
-		} else if flags.source == "tiingo-crypto" {
-			q, _ = quote.NewQuoteFromTiingoCrypto(sym, from.Format(dateFormat), to.Format(dateFormat), period, flags.token)
-		} else if flags.source == "gdax" {
-			q, _ = quote.NewQuoteFromGdax(sym, from.Format(dateFormat), to.Format(dateFormat), period)
-		} else if flags.source == "bittrex" {
-			q, _ = quote.NewQuoteFromBittrex(sym, period)
-		} else if flags.source == "binance" {
-			q, _ = quote.NewQuoteFromBinance(sym, from.Format(dateFormat), to.Format(dateFormat), period)
 		}
 		var err error
 		if flags.format == "csv" {
